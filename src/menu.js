@@ -1,15 +1,23 @@
 import { Menu } from './core/menu';
 
 export class ContextMenu extends Menu {
-  open() {
+  open(event) {
+    event.preventDefault();
+
+    this.el.style.left = `${event.pageX}px`;
+    this.el.style.top = `${event.pageY}px`;
+
     this.el.classList.add('open');
   }
 
   close() {
-    console.log('Клик вне меню');
+    this.el.classList.remove('open');
   }
 
   add(module) {
-    this.el.append(module.toHTML());
+    const item = module.toHTML();
+    this.el.append(item);
+
+    item.addEventListener('click', module.trigger.bind(module));
   }
 }
