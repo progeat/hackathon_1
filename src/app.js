@@ -1,10 +1,14 @@
 import './styles.css';
 import { ContextMenu } from './menu.js';
+import { ShapeModule } from './modules/shape.module.js';
 import { TestModule } from './modules/test.module.js'; // Подключаем свой модуль вместо этого
 
+const modules = [
+  new ShapeModule('shape', 'Случайная фигура'),
+  new TestModule('test', 'Тест'),
+];
 const menu = new ContextMenu('#menu');
-const test = new TestModule('test', 'Тест'); // создаем свой экземпляр класса. Первый параметр оставляем test. Имя переменной оставляем test.
 
-menu.add(test);
+modules.forEach((module) => menu.add(module));
 
 document.addEventListener('contextmenu', menu.open.bind(menu));
