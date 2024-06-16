@@ -1,5 +1,5 @@
 import { Module } from '../core/module';
-console.log('Module');
+
 export class TimerModule extends Module {
   trigger() {
     document.addEventListener('keydown', function (event) {
@@ -155,7 +155,7 @@ export class TimerModule extends Module {
     );
 
     $resetButton.addEventListener('click', () => {
-      this.showInfoBlock(mainBlock);
+      time = 0;
     });
 
     this.updateTimer(
