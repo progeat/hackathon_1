@@ -39,6 +39,34 @@ export class RandomMessageModule extends Module {
     messageBlock.style.color = 'white';
     messageBlock.style.padding = '15px';
     messageBlock.style.borderRadius = '5px';
+
+    const corner = random(0, 5);
+    switch (corner) {
+      case 0:
+        messageBlock.style.top = '10px';
+        messageBlock.style.left = '10px';
+        break;
+      case 1:
+        messageBlock.style.top = '60px';
+        messageBlock.style.left = '10px';
+        break;
+      case 2:
+        messageBlock.style.top = '110px';
+        messageBlock.style.left = '10px';
+        break;
+      case 3:
+        messageBlock.style.top = '10px';
+        messageBlock.style.right = '10px';
+        break;
+      case 4:
+        messageBlock.style.top = '60px';
+        messageBlock.style.right = '10px';
+        break;
+      case 5:
+        messageBlock.style.top = '110px';
+        messageBlock.style.right = '10px';
+        break;
+    }
     return messageBlock;
   }
 

@@ -1,5 +1,5 @@
 import { Module } from '../core/module';
-console.log('Module');
+
 export class TimerModule extends Module {
   trigger() {
     document.addEventListener('keydown', function (event) {
