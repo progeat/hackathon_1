@@ -155,7 +155,7 @@ export class TimerModule extends Module {
     );
 
     $resetButton.addEventListener('click', () => {
-      this.showInfoBlock(mainBlock);
+      time = 0;
     });
 
     this.updateTimer(
