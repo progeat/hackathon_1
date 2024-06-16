@@ -59,7 +59,13 @@ export class ShapeModule extends Module {
           break;
       }
     };
-    setInterval(createRandomShape, 1000);
+    this.intervalId = setInterval(createRandomShape, 1000);
+    createRandomShape();
+
+    this.timeoutId = setTimeout(() => {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    }, 10000);
   }
   toHTML() {
     const item = document.createElement('li');
