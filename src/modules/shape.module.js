@@ -2,10 +2,6 @@ import { Module } from '../core/module';
 import { random, randomColor } from '../utils';
 
 export class ShapeModule extends Module {
-  constructor(type, text) {
-    super(type, text);
-  }
-
   trigger() {
     const addCanvasHTML = document.createElement('canvas');
     const canvasCTX = addCanvasHTML.getContext('2d');
