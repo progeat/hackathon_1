@@ -7,7 +7,7 @@ export class ShapeModule extends Module {
     this.canvas = null;
     this.canvasCTX = null;
   }
-
+  
   trigger() {
     if (!this.canvas) {
       this.canvas = document.createElement('canvas');
@@ -16,6 +16,14 @@ export class ShapeModule extends Module {
       this.canvas.height = window.innerHeight - 100;
       document.body.appendChild(this.canvas);
     }
+    
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      clearTimeout(this.timeoutId);
+      this.intervalId = null;
+      return;
+    }
+    
     const createRandomShape = () => {
       const shapeType = random(0, 4);
       const x = random(0, this.canvas.width);
